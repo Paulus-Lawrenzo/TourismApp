@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.tourismapp.MyApplication
 import com.dicoding.tourismapp.R
@@ -68,11 +67,10 @@ class HomeFragment : Fragment() {
                             binding.progressBar.visibility = View.GONE
                             tourismAdapter.setData(tourism.data)
                         }
-
                         is Resource.Error -> with(binding) {
                             progressBar.visibility = View.GONE
                             viewError.root.visibility = View.VISIBLE
-                            showErrorState(tourism.message ?: getString(R.string.something_wrong))
+                            showErrorState(getString(R.string.something_wrong))
                         }
 
                     }
@@ -87,10 +85,10 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showErrorState(errorMessage: String) {
-        binding.viewError.root.visibility = View.VISIBLE
-        binding.viewError.tvError.text = errorMessage
-        binding.viewError.btnRetry.setOnClickListener {
+    private fun showErrorState(errorMessage: String) = with(binding){
+        viewError.root.visibility = View.VISIBLE
+        viewError.tvError.text = errorMessage
+        viewError.btnRetry.setOnClickListener {
             homeViewModel.retry()
         }
     }
