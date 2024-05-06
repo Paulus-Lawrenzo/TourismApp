@@ -1,21 +1,21 @@
 dependencies {
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
-    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
-    testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    implementation "androidx.multidex:multidex:$multidex_version"
+    implementation(Core.appcompat)
+    implementation(Core.coreKtx)
+    implementation(Core.constraint)
+    implementation(Core.legacySupport)
+    testImplementation(Core.junit)
+    androidTestImplementation(Core.androidxJunit)
+    androidTestImplementation(Core.espresso)
+    implementation(Core.multidex)
 
-    implementation "androidx.cardview:cardview:$cardview_version"
-    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-    implementation "com.google.android.material:material:$material_version"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation(Core.cardView)
+    implementation(Core.recyclerView)
+    implementation(Core.material)
+    implementation(Core.glide)
+    implementation(Core.lifecycleLiveData)
+    implementation(Core.lifecycleViewModel)
 
     // dagger
-    implementation "com.google.dagger:dagger:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation(Core.dagger)
+    kapt(Core.daggerCompiler)
 }

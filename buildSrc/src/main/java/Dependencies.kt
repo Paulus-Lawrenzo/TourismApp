@@ -1,0 +1,75 @@
+object AppModules {
+    const val app = ":app"
+}
+
+object CoreModules {
+    const val core = ":core"
+}
+
+object BuildPlugins {
+    const val androidApplication = "com.android.application"
+    const val kotlinAndroid = "kotlin-android"
+    const val kotlinAndroidExtensions = "kotlin-android-extensions"
+    const val kotlinKapt = "kotlin-kapt"
+    const val androidLibrary = "com.android.library"
+    const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
+    const val kotlinParcelize = "kotlin-parcelize"
+}
+
+object Core {
+    private object Versions {
+        const val kotlinVersion = "1.6.21"
+        const val appcompatVersion = "1.4.1"
+        const val coreKtxVersion = "1.8.0"
+        const val constraintVersion = "2.0.4"
+        const val legacySupportVersion = "1.0.0"
+        const val junitVersion = "4.13.1"
+        const val androidxJunitVersion = "1.1.2"
+        const val espressoVersion = "3.3.0"
+        const val multidexVersion = "2.0.1"
+        const val gradleToolsBuildVersion = "7.2.2"
+        const val daggerVersion = "2.29.1"
+        const val activityKtxVersion = "1.1.0"
+        const val fragmentKtxVersion = "1.2.5"
+        const val cardViewVersion = "1.0.0"
+        const val recyclerViewVersion = "1.1.0"
+        const val materialVersion = "1.3.0"
+        const val glideVersion = "4.11.0"
+        const val roomVersion = "2.4.0"
+        const val retrofitVersion = "2.9.0"
+        const val loggingInterceptorVersion = "4.9.0"
+        const val kotlinCoroutinesVersion = "1.3.9"
+        const val lifecycleVersion = "2.5.1"
+    }
+
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompatVersion}"
+    const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
+    const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraintVersion}"
+    const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupportVersion}"
+    const val junit = "junit:junit:${Versions.junitVersion}"
+    const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunitVersion}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
+    const val multidex = "androidx.multidex:multidex:${Versions.multidexVersion}"
+    const val gradleToolsBuild = "com.android.tools.build:gradle:${Versions.gradleToolsBuildVersion}"
+    const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
+    const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtxVersion}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtxVersion}"
+    const val cardView = "androidx.cardview:cardview:${Versions.cardViewVersion}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
+    const val material = "com.google.android.material:material:${Versions.materialVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.roomVersion}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.roomVersion}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
+    const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
+    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptorVersion}"
+    const val kotlinCoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutinesVersion}"
+    const val kotlinCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutinesVersion}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
+    const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
+}
