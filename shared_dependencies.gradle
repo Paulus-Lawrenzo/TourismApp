@@ -12,10 +12,11 @@ dependencies {
     implementation(Core.recyclerView)
     implementation(Core.material)
     implementation(Core.glide)
-    implementation(Core.lifecycleLiveData)
-    implementation(Core.lifecycleViewModel)
 
     // dagger
-    implementation(Core.dagger)
-    kapt(Core.daggerCompiler)
+    implementation(Core.hiltDagger)
+    kapt(Core.hiltDaggerCompiler)
+    implementation(Core.hiltJetpack)
+    kapt(Core.hiltJetpackCompiler)
+    kaptAndroidTest(Core.hiltJetpackTestCompiler)
 }

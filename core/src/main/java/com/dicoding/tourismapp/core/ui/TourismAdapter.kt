@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dicoding.tourismapp.R
+import com.dicoding.tourismapp.core.R
+import com.dicoding.tourismapp.core.databinding.ItemListTourismBinding
 import com.dicoding.tourismapp.core.domain.model.Tourism
-import com.dicoding.tourismapp.databinding.ItemListTourismBinding
 
 class TourismAdapter : RecyclerView.Adapter<TourismAdapter.ListViewHolder>() {
 
@@ -28,10 +28,10 @@ class TourismAdapter : RecyclerView.Adapter<TourismAdapter.ListViewHolder>() {
 
     override fun getItemCount() = listData.size
 
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
-        // TODO
-    }
+//    override fun getItemViewType(position: Int): Int {
+//        return super.getItemViewType(position)
+//        // TODO
+//    }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val data = listData[position]
@@ -42,7 +42,9 @@ class TourismAdapter : RecyclerView.Adapter<TourismAdapter.ListViewHolder>() {
         private val binding = ItemListTourismBinding.bind(itemView)
         fun bind(data: Tourism) {
             with(binding) {
-                Glide.with(itemView.context).load(data.image).into(ivItemImage)
+                Glide.with(itemView.context)
+                    .load(data.image)
+                    .into(ivItemImage)
                 tvItemTitle.text = data.name
                 tvItemSubtitle.text = data.address
             }

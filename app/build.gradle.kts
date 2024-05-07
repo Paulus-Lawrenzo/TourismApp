@@ -1,8 +1,9 @@
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
-    id(BuildPlugins.kotlinAndroidExtensions)
+    id(BuildPlugins.kotlinParcelize)
     id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.hiltDagger)
 }
 
 apply {
@@ -47,32 +48,6 @@ android {
 }
 
 dependencies {
-    implementation(Core.kotlin)
-    implementation(Core.constraint)
-    implementation(Core.legacySupport)
-    testImplementation(Core.junit)
-    androidTestImplementation(Core.androidxJunit)
-    androidTestImplementation(Core.espresso)
-    implementation(Core.multidex)
-
-    implementation(Core.glide)
-
-    implementation(Core.roomRuntime)
-    kapt(Core.roomCompiler)
-    androidTestImplementation(Core.roomTesting)
-
-    implementation(Core.retrofit)
-    implementation(Core.retrofitConverter)
-    implementation(Core.loggingInterceptor)
-
-    implementation(Core.kotlinCoroutinesCore)
-    implementation(Core.kotlinCoroutinesAndroid)
-    implementation(Core.roomKtx)
-    implementation(Core.dagger)
-    kapt(Core.daggerCompiler)
-
-    implementation(Core.activityKtx)
-    implementation(Core.fragmentKtx)
-
     implementation(project(CoreModules.core))
+    implementation(Core.kotlin)
 }

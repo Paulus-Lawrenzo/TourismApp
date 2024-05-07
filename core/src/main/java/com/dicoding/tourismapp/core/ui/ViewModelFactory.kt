@@ -1,0 +1,34 @@
+package com.dicoding.tourismapp.core.ui
+
+import android.content.Context
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+//import com.dicoding.tourismapp.core.di.Injection
+import com.dicoding.tourismapp.core.domain.usecase.TourismUseCase
+import javax.inject.Inject
+import javax.inject.Provider
+
+class ViewModelFactory @Inject constructor(
+    private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
+) : ViewModelProvider.Factory {
+
+//    companion object {
+//        @Volatile
+//        private var instance: ViewModelFactory? = null
+//
+//        fun getInstance(context: Context): ViewModelFactory =
+//            instance ?: synchronized(this) {
+//                instance ?: ViewModelFactory(
+//                    Injection.provideTourismUseCase(context)
+//                )
+//            }
+//    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        val creator = creators[modelClass] ?: creators.entries.firstOrNull {
+            modelClass.isAssignableFrom(it.key)
+        }?.value ?: throw IllegalArgumentException("unknown model class $modelClass")
+        return creator.get() as T
+    }
+}

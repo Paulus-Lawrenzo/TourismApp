@@ -8,14 +8,17 @@ import androidx.lifecycle.viewModelScope
 import com.dicoding.tourismapp.core.data.Resource
 import com.dicoding.tourismapp.core.domain.model.Tourism
 import com.dicoding.tourismapp.core.domain.usecase.TourismUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel(private val tourismUseCase: TourismUseCase) : ViewModel() {
-    private val _tourism = MutableLiveData<Resource<List<Tourism>>>()
-    val tourism: LiveData<Resource<List<Tourism>>>
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val tourismUseCase: TourismUseCase) : ViewModel() {
+    private val _tourism = MutableLiveData<com.dicoding.tourismapp.core.data.Resource<List<Tourism>>>()
+    val tourism: LiveData<com.dicoding.tourismapp.core.data.Resource<List<Tourism>>>
         get() = _tourism
 
     init {
@@ -25,10 +28,10 @@ class HomeViewModel(private val tourismUseCase: TourismUseCase) : ViewModel() {
     private fun fetchTourismData() {
         viewModelScope.launch {
             tourismUseCase.getAllTourism()
-                .onStart { _tourism.value = Resource.Loading() }
+                .onStart { _tourism.value = com.dicoding.tourismapp.core.data.Resource.Loading() }
                 .catch { exception ->
                     Log.e("ya", "catch")
-                    _tourism.value = Resource.Error(exception.message ?: "Unknown error")
+                    _tourism.value = com.dicoding.tourismapp.core.data.Resource.Error(exception.message ?: "Unknown error")
                 }
                 .collect { result ->
                     Log.e("ya", "collect")

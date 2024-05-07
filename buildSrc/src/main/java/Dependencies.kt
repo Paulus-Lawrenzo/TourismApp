@@ -14,6 +14,7 @@ object BuildPlugins {
     const val androidLibrary = "com.android.library"
     const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinParcelize = "kotlin-parcelize"
+    const val hiltDagger = "dagger.hilt.android.plugin"
 }
 
 object Core {
@@ -28,7 +29,7 @@ object Core {
         const val espressoVersion = "3.3.0"
         const val multidexVersion = "2.0.1"
         const val gradleToolsBuildVersion = "7.2.2"
-        const val daggerVersion = "2.29.1"
+//        const val daggerVersion = "2.29.1"
         const val activityKtxVersion = "1.1.0"
         const val fragmentKtxVersion = "1.2.5"
         const val cardViewVersion = "1.0.0"
@@ -40,6 +41,8 @@ object Core {
         const val loggingInterceptorVersion = "4.9.0"
         const val kotlinCoroutinesVersion = "1.3.9"
         const val lifecycleVersion = "2.5.1"
+        const val hiltVersion = "2.40.5"
+        const val hiltJetpackVersion = "1.0.0-alpha03"
     }
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
@@ -53,8 +56,8 @@ object Core {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
     const val multidex = "androidx.multidex:multidex:${Versions.multidexVersion}"
     const val gradleToolsBuild = "com.android.tools.build:gradle:${Versions.gradleToolsBuildVersion}"
-    const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
-    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
+//    const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
+//    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtxVersion}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtxVersion}"
     const val cardView = "androidx.cardview:cardview:${Versions.cardViewVersion}"
@@ -72,4 +75,10 @@ object Core {
     const val kotlinCoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutinesVersion}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
     const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleVersion}"
+    const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}"
+    const val hiltDagger = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
+    const val hiltDaggerCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
+    const val hiltJetpack = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltJetpackVersion}"
+    const val hiltJetpackCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltJetpackVersion}"
+    const val hiltJetpackTestCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltJetpackVersion}"
 }

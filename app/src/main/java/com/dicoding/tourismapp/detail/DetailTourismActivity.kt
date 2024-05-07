@@ -10,30 +10,27 @@ import com.dicoding.tourismapp.R
 import com.dicoding.tourismapp.core.domain.model.Tourism
 import com.dicoding.tourismapp.core.ui.ViewModelFactory
 import com.dicoding.tourismapp.databinding.ActivityDetailTourismBinding
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class DetailTourismActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DATA = "extra_data"
     }
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-
-    private val detailTourismViewModel: DetailTourismViewModel by viewModels {
-        factory
-    }
-
     private lateinit var binding: ActivityDetailTourismBinding
 
+    private val detailTourismViewModel: DetailTourismViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
+//        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityDetailTourismBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
 
 //        val factory = ViewModelFactory.getInstance(this)
 //        detailTourismViewModel = ViewModelProvider(this, factory)[DetailTourismViewModel::class.java]

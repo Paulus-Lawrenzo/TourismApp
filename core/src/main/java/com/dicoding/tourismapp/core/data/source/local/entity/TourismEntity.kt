@@ -10,28 +10,28 @@ data class TourismEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "tourismId")
-    var tourismId: String="",
+    var tourismId: String,
 
     @ColumnInfo(name = "name")
-    var name: String="",
+    var name: String,
 
     @ColumnInfo(name = "description")
-    var description: String="",
+    var description: String,
 
     @ColumnInfo(name = "address")
-    var address: String="",
+    var address: String,
 
     @ColumnInfo(name = "latitude")
-    var latitude: Double=0.0,
+    var latitude: Double,
 
     @ColumnInfo(name = "longitude")
-    var longitude: Double=0.0,
+    var longitude: Double,
 
     @ColumnInfo(name = "like")
-    var like: Int=0,
+    var like: Int,
 
     @ColumnInfo(name = "image")
-    var image: String="",
+    var image: String,
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false

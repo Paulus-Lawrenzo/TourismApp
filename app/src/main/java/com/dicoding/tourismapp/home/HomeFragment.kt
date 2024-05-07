@@ -16,16 +16,13 @@ import com.dicoding.tourismapp.core.ui.TourismAdapter
 import com.dicoding.tourismapp.core.ui.ViewModelFactory
 import com.dicoding.tourismapp.databinding.FragmentHomeBinding
 import com.dicoding.tourismapp.detail.DetailTourismActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-
-    private val homeViewModel: HomeViewModel by viewModels {
-        factory
-    }
+    private val homeViewModel: HomeViewModel by viewModels()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -38,13 +35,14 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (requireActivity().application as MyApplication).appComponent.inject(this)
-    }
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//        (requireActivity().application as MyApplication).appComponent.inject(this)
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         if (activity != null) {
 
             val tourismAdapter = TourismAdapter()
@@ -60,14 +58,14 @@ class HomeFragment : Fragment() {
             homeViewModel.tourism.observe(viewLifecycleOwner) { tourism ->
                 if (tourism != null) {
                     when (tourism) {
-                        is Resource.Loading -> {
+                        is com.dicoding.tourismapp.core.data.Resource.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
                         }
-                        is Resource.Success -> {
+                        is com.dicoding.tourismapp.core.data.Resource.Success -> {
                             binding.progressBar.visibility = View.GONE
                             tourismAdapter.setData(tourism.data)
                         }
-                        is Resource.Error -> with(binding) {
+                        is com.dicoding.tourismapp.core.data.Resource.Error -> with(binding) {
                             progressBar.visibility = View.GONE
                             viewError.root.visibility = View.VISIBLE
                             showErrorState(getString(R.string.something_wrong))

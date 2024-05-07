@@ -1,6 +1,6 @@
 plugins {
     id(BuildPlugins.androidLibrary)
-    id(BuildPlugins.jetbrainsKotlinAndroid)
+    id(BuildPlugins.kotlinAndroid)
     id(BuildPlugins.kotlinParcelize)
     id(BuildPlugins.kotlinKapt)
 }
@@ -37,4 +37,30 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation(Core.kotlin)
+
+    // room
+    api(Core.roomRuntime)
+    kapt(Core.roomCompiler)
+    androidTestImplementation(Core.roomTesting)
+
+    // retrofit
+    implementation(Core.retrofit)
+    implementation(Core.retrofitConverter)
+    api(Core.loggingInterceptor)
+
+    // coroutine
+    implementation(Core.kotlinCoroutinesCore)
+    implementation(Core.kotlinCoroutinesAndroid)
+    implementation(Core.roomKtx)
+
+    api(Core.lifecycleLiveData)
+    api(Core.activityKtx)
+    api(Core.fragmentKtx)
 }
